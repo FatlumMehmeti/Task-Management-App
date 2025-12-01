@@ -11,6 +11,7 @@ import Dashboard from "./pages/app/Dashboard";
 import AppLayout from "./layouts/AppLayout";
 import AuthLayout from "./layouts/AuthLayout";
 
+
 const RootRoute = createRootRoute({
   component: function Root() {
     return <Outlet />;
