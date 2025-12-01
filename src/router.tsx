@@ -8,9 +8,9 @@ import {
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import Dashboard from "./pages/app/Dashboard";
+import { BoardView } from "./Board/BoardView";
 import AppLayout from "./layouts/AppLayout";
 import AuthLayout from "./layouts/AuthLayout";
-
 
 const RootRoute = createRootRoute({
   component: function Root() {
@@ -62,9 +62,15 @@ const DashboardRoute = createRoute({
   component: Dashboard,
 });
 
+const BoardRoute = createRoute({
+  getParentRoute: () => AppLayoutRoute,
+  path: "board",
+  component: BoardView,
+});
+
 const routeTree = RootRoute.addChildren([
   AuthLayoutRoute.addChildren([LoginRoute, SignUpRoute]),
-  AppLayoutRoute.addChildren([DashboardRoute]),
+  AppLayoutRoute.addChildren([DashboardRoute, BoardRoute]),
 ]);
 
 const router = createRouter({ routeTree });
