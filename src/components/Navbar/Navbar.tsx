@@ -1,13 +1,19 @@
 import "./Navbar.css";
 import Notifications from "../Notifications/Notifications";
 import { useRouter } from "@tanstack/react-router";
-import { LogOut } from "lucide-react";
+import { LogOut, Settings as SettingsIcon } from "lucide-react";
 import { toast } from "sonner";
-import Button from "../Button";
+import Button  from "../Button";
 import UserManagementModule from "../UserManagement/UserManagementModule";
+
+
+import SearchBar from "../Search/SearchBar";
+import { useState } from "react";
+import SettingsModal from "../Settings/SettingsModal";
 
 export default function Navbar() {
   const router = useRouter();
+  const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
 
   return (
     <div className="navbar">
@@ -16,7 +22,8 @@ export default function Navbar() {
 
       {/* navbar-MIDDLE */}
       <div className="navbar-middle">
-        <input className="search-bar" type="text" placeholder="Search" />
+        {/* <input className="search-bar" type="text" placeholder="Search" /> */}
+        <SearchBar />
         <button className="create-button">Create</button>
       </div>
 
@@ -26,6 +33,14 @@ export default function Navbar() {
         <button className="channel-button navbar-right-button"> </button>
         <Notifications />
         <button className="information-button navbar-right-button"> </button>
+        <Button
+          className="settings-button navbar-right-button"
+          aria-label="Settings"
+          icon={SettingsIcon}
+          iconSize={18}
+          size="icon"
+          onClick={() => setSettingsOpen(true)}
+        />
         <Button
           className="profile-button navbar-right-button"
           aria-label="Sign out"
@@ -43,6 +58,7 @@ export default function Navbar() {
           }}
         />
       </div>
+      <SettingsModal isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </div>
   );
 }
