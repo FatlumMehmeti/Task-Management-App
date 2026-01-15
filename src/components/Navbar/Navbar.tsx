@@ -3,7 +3,10 @@ import Notifications from "../Notifications/Notifications";
 import { useRouter } from "@tanstack/react-router";
 import { LogOut, Settings as SettingsIcon } from "lucide-react";
 import { toast } from "sonner";
-import Button from "../Button";
+import Button  from "../Button";
+import UserManagementModule from "../UserManagement/UserManagementModule";
+
+
 import SearchBar from "../Search/SearchBar";
 import { useState } from "react";
 import SettingsModal from "../Settings/SettingsModal";
@@ -11,6 +14,7 @@ import SettingsModal from "../Settings/SettingsModal";
 export default function Navbar() {
   const router = useRouter();
   const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
+
   return (
     <div className="navbar">
       {/* navbar-LEFT */}
@@ -25,6 +29,7 @@ export default function Navbar() {
 
       {/* navbar-RIGHT */}
       <div className="navbar-right">
+        <UserManagementModule />
         <button className="channel-button navbar-right-button"> </button>
         <Notifications />
         <button className="information-button navbar-right-button"> </button>

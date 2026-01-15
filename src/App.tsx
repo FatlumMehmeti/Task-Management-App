@@ -1,5 +1,5 @@
-import Navbar from "./Navbar/Navbar";
-import BoardPage from './components/board/BoardPage'
+import Navbar from "./components/Navbar/Navbar.tsx";
+
 import "./App.css";
 import type { JSX } from "react";
 
