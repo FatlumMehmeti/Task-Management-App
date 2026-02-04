@@ -7,7 +7,8 @@ import {
 } from "@tanstack/react-router";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
-import Dashboard from "./components/Dashboard/Dashboard.tsx";
+import Dashboard from "./pages/app/Dashboard";
+import { BoardView } from "./Board/BoardView";
 import AppLayout from "./layouts/AppLayout";
 import AuthLayout from "./layouts/AuthLayout";
 
@@ -66,6 +67,12 @@ const DashboardRoute = createRoute({
   getParentRoute: () => AppLayoutRoute,
   path: "dashboard",
   component: Dashboard,
+});
+
+const BoardRoute = createRoute({
+  getParentRoute: () => AppLayoutRoute,
+  path: "board",
+  component: BoardView,
 });
 
 const routeTree = RootRoute.addChildren([
