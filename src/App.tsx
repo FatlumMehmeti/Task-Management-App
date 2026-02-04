@@ -1,20 +1,14 @@
-import Navbar from "./components/Navbar/Navbar.tsx";
+import React from "react";
+import Navbar from "./components/Navbar";
+import TaskModule from "./components/TaskModule/TaskModule";
 
-import "./App.css";
-import type { JSX } from "react";
-
-export default function App(): JSX.Element {
+const App: React.FC = () => {
   return (
-    <>
+    <div className="min-h-screen bg-gray-50 dark:bg-neutral-950 transition-colors">
       <Navbar />
-      {/* <BoardPage /> */} <div className="style" style={{width: 100, height: 100, backgroundColor: "white"}}>fjolaa</div>
-    </>
+      <TaskModule />
+    </div>
   );
-  //  if(currentPage === "dashboard") {
-  //   <DashboardLayout />
-  // }
-  // if(currentPage === "board") {
-  //   <BoardLayout />
-  // }
-}
+};
 
+export default App;
